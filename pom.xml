@@ -59,6 +59,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- PostgreSQL Driver -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.3</version>
+        </dependency>
+
         <!-- JWT II -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
