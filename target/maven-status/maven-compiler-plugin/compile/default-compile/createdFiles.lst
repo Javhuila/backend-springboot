@@ -1,0 +1,6 @@
+com\project\flutter_backend_desktop\controlador\ProductControlador.class
+com\project\flutter_backend_desktop\modelo\Product.class
+com\project\flutter_backend_desktop\FlutterBackendDesktopApplication.class
+com\project\flutter_backend_desktop\servicio\IProductServicio.class
+com\project\flutter_backend_desktop\servicio\ProductServicio.class
+com\project\flutter_backend_desktop\repositorio\ProductRepositorio.class
