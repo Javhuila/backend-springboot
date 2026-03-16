@@ -52,7 +52,13 @@ class _PedidosState extends State<Pedidos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Registro de compra"), elevation: 10),
+      appBar: AppBar(
+        title: Text("Registro de compra"),
+        elevation: 10,
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.list_alt_rounded)),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
@@ -70,7 +76,7 @@ class _PedidosState extends State<Pedidos> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(
-                            "Selección de cliente",
+                            "Selección de la compra",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,

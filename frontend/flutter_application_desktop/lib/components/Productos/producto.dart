@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_desktop/components/Productos/add_product.dart';
+import 'package:flutter_application_desktop/components/Productos/edit_producto.dart';
 import 'package:flutter_application_desktop/models/product.dart';
 import 'package:flutter_application_desktop/services/product_service.dart';
 
@@ -21,7 +23,20 @@ class _ProductoState extends State<Producto> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Productos')),
+      appBar: AppBar(
+        title: const Text('Productos'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AddProduct()),
+              );
+            },
+            icon: Icon(Icons.add_shopping_cart_rounded),
+          ),
+        ],
+      ),
       body: FutureBuilder<List<Product>>(
         future: futureProducts,
         builder: (context, snapshot) {
@@ -44,6 +59,17 @@ class _ProductoState extends State<Producto> {
                 child: ListTile(
                   title: Text(p.nombre),
                   subtitle: Text('Marca: ${p.marca}\nPrecio: S/ ${p.precio}'),
+                  trailing: IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const EditProduct(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.edit_note_outlined),
+                  ),
                 ),
               );
             },

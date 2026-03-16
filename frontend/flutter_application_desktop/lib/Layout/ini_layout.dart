@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_desktop/components/Clientes/cliente.dart';
+import 'package:flutter_application_desktop/components/Inventarios/inventario.dart';
 import 'package:flutter_application_desktop/components/Pedidos/pedidos.dart';
 import 'package:flutter_application_desktop/components/Productos/producto.dart';
 
@@ -41,22 +43,20 @@ class _IniLayoutState extends State<IniLayout> {
             ActionButtonWidget(
               nameButton: "Clientes",
               actionButton: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const Clientes()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Cliente()),
+                );
               },
             ),
             const SizedBox(height: 50),
             ActionButtonWidget(
               nameButton: "Inventario",
               actionButton: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const Inventario(),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Inventario()),
+                );
               },
             ),
             const SizedBox(height: 50),
