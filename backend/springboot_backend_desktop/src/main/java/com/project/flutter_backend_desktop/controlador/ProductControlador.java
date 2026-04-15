@@ -1,25 +1,16 @@
 package com.project.flutter_backend_desktop.controlador;
 
-import com.project.flutter_backend_desktop.modelo.Dto.ProductDTO;
 import com.project.flutter_backend_desktop.modelo.Product;
-import com.project.flutter_backend_desktop.servicio.interfaz.IProductServicio;
+import com.project.flutter_backend_desktop.servicio.IProductServicio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.project.flutter_backend_desktop.Constant.Constant.PHOTO_DIRECTORY;
-import static org.springframework.http.MediaType.IMAGE_JPEG_VALUE;
-import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 
 @RestController
 @RequestMapping("api/product")
@@ -43,15 +34,9 @@ public class ProductControlador {
     }
 
     @PostMapping("/productos")
-    public ResponseEntity<Product> guardarProducto(@RequestBody ProductDTO productDTO) {
-        Product nuevoProducto = productServicio.guardarProduct(productDTO);
+    public ResponseEntity<Product> guardarProducto(@RequestBody Product product) {
+        Product nuevoProducto = productServicio.guardarProduct(product);
         return ResponseEntity.ok(nuevoProducto);
-    }
-
-    @PutMapping("/editProductos/{id}")
-    public Product actualizarProducto(@PathVariable Integer id,@RequestBody ProductDTO productDTO) {
-
-        return productServicio.actualizarProduct(productDTO, id);
     }
 
     @GetMapping("/productos/{id}")
@@ -73,15 +58,5 @@ public class ProductControlador {
         Map<String, Boolean> respuesta = new HashMap<>();
         respuesta.put("eliminado", Boolean.TRUE);
         return ResponseEntity.ok(respuesta);
-    }
-
-    @PutMapping("/productos/photo")
-    public ResponseEntity<String> uploadFoto(@RequestParam("id") String id, @RequestParam("file") MultipartFile file) {
-        return ResponseEntity.ok().body(productServicio.uploadFoto(id, file));
-    }
-
-    @GetMapping(path = "/productos/image/{filename}", produces = { IMAGE_PNG_VALUE, IMAGE_JPEG_VALUE })
-    public byte[] getFotografia(@PathVariable("filename") String filename) throws IOException {
-        return Files.readAllBytes(Paths.get(PHOTO_DIRECTORY + filename));
     }
 }
