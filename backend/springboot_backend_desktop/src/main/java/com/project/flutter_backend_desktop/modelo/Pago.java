@@ -31,6 +31,7 @@ public class Pago {
     @Column(nullable = false)
     private Double monto;
 
+    // Banco
     private String banco;
 
     private String numeroReferencia;
