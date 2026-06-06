@@ -15,7 +15,6 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class Cliente {
 
@@ -32,4 +31,6 @@ public class Cliente {
     Integer cedula;
     String correo;
     String telefono;
+    String barrio;
+    String direccion;
 }
