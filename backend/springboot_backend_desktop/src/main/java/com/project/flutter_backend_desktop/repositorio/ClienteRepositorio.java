@@ -18,6 +18,8 @@ public interface ClienteRepositorio extends JpaRepository<Cliente, Integer>,
             nativeQuery = true)
     Integer buscarCedula();
 
+    List<Cliente> findByFrecuenteTrue();
+
     List<Cliente> findTop10ByNombreCompletoContainingIgnoreCase(String nombreCompleto);
 
     Page<Cliente> findAll(Specification<Cliente> spec, Pageable pageable);

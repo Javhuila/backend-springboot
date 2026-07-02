@@ -1,10 +1,7 @@
 package com.project.flutter_backend_desktop.modelo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,6 +25,10 @@ public class Cliente {
 
     @NotBlank(message = "El apellido es obligatorio")
     String apellido;
+
+    @Column(nullable =false)
+    private Boolean frecuente = false;
+
     Integer cedula;
     String correo;
     String telefono;
