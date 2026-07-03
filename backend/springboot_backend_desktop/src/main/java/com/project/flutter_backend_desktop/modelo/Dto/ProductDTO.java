@@ -1,5 +1,6 @@
 package com.project.flutter_backend_desktop.modelo.Dto;
 
+import com.project.flutter_backend_desktop.modelo.Enum.EstadoProducto;
 import lombok.Data;
 
 @Data
@@ -10,7 +11,8 @@ public class ProductDTO {
     private Double precio;
     private String marca;
     private String fotoUrl;
-
+    private EstadoProducto estado;
+    private Boolean frecuente;
     private Integer categoriaId;
     private Integer clasificacionId;
 }
