@@ -53,6 +53,9 @@ public class Product {
 
     private Integer totalVendido = 0;
 
+    @Column(nullable =false)
+    private Boolean frecuente = false;
+
     @NotNull(message = "Debe seleccionar una categoría")
     @ManyToOne
     @JoinColumn(name = "categoria_id")
