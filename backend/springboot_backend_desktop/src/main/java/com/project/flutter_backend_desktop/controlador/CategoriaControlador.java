@@ -34,7 +34,7 @@ public class CategoriaControlador {
     @Autowired
     private ICategoriaServicio categoriaServicio;
 
-    @GetMapping("/categorias")
+    @GetMapping("/categorias/list")
     public List<Categoria> listarCategory() {
         var category = categoriaServicio.listarCat();
         category.forEach(ap -> logger.info(ap.toString()));
@@ -53,7 +53,7 @@ public class CategoriaControlador {
         return categoriaServicio.actualizarCat(categoria, id);
     }
 
-    @GetMapping("/categorias/{id}")
+    @GetMapping("/categorias/{id}/catch")
     public ResponseEntity<Categoria> obtenerCategoriaPorId(@PathVariable Integer id) {
         Categoria categoria = categoriaServicio.buscarCategoriaPorId(id);
         if(categoria == null) {
@@ -62,7 +62,7 @@ public class CategoriaControlador {
         return ResponseEntity.ok(categoria);
     }
 
-    @DeleteMapping("/categorias/{id}")
+    @DeleteMapping("/categorias/{id}/delete")
     public ResponseEntity<Map<String, Boolean>> eliminarProducto(@PathVariable int id) {
         Categoria categoria = categoriaServicio.buscarCategoriaPorId(id);
         if (categoria == null) {

@@ -26,7 +26,7 @@ public class ClasificacionControlador {
     @Autowired
     private IClasificacionServicio clasificacionServicio;
 
-    @GetMapping("/clasificaciones")
+    @GetMapping("/clasificaciones/list")
     public List<Clasificacion> listarClasif() {
         var clasif = clasificacionServicio.listarClas();
         clasif.forEach(ap -> logger.info(ap.toString()));
@@ -44,7 +44,7 @@ public class ClasificacionControlador {
         return clasificacionServicio.actualizarClas(clasificacion, id);
     }
 
-    @GetMapping("/clasificaciones/{id}")
+    @GetMapping("/clasificaciones/{id}/catch")
     public ResponseEntity<Clasificacion> obtenerClasificacionPorId(@PathVariable Integer id) {
         Clasificacion clasificacion = clasificacionServicio.buscarClasificacionPorId(id);
         if(clasificacion == null) {
@@ -53,7 +53,7 @@ public class ClasificacionControlador {
         return ResponseEntity.ok(clasificacion);
     }
 
-    @DeleteMapping("/clasificaciones/{id}")
+    @DeleteMapping("/clasificaciones/{id}/delete")
     public ResponseEntity<Map<String, Boolean>> eliminarClasif(@PathVariable Integer id) {
         Clasificacion clasificacion = clasificacionServicio.buscarClasificacionPorId(id);
         if (clasificacion == null) {
