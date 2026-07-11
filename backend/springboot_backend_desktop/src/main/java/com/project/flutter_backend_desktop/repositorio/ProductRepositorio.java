@@ -2,7 +2,6 @@ package com.project.flutter_backend_desktop.repositorio;
 
 import com.project.flutter_backend_desktop.modelo.Enum.EstadoProducto;
 import com.project.flutter_backend_desktop.modelo.Product;
-import com.project.flutter_backend_desktop.modelo.PromoBonoProduct;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
